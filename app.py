@@ -3,7 +3,7 @@ import datetime, time
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/api')
 def home():
     name = request.args.get('name')
     track = request.args.get('track')
