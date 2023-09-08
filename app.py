@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-import datetime, time
+import datetime
 
 app = Flask(__name__)
 
@@ -7,14 +7,13 @@ app = Flask(__name__)
 def home():
     name = request.args.get('slack_name')
     track = request.args.get('track')
-    today = datetime.date.today()
-    days_of_the_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    today = datetime.datetime.now().date().strftime('%A')
 
     try:
         res = {
             "slack_name": name,
-            "current_day": days_of_the_week[datetime.date.weekday(today)],
-            "utc_time": time.strftime("%H:%M:%S", time.localtime()),
+            "current_day": today,
+            "utc_time": datetime.datetime.now(),
             "track": track,
             "github_file_url": "https://github.com/Sam-HNGx/stage-1/blob/3fc862ee6851e969802bc4c12256052dedc87fd8/app.py",
             "github_repo_url": "https://github.com/Sam-HNGx/stage-1.git",
