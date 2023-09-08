@@ -13,7 +13,7 @@ def home():
         res = {
             "slack_name": name,
             "current_day": today,
-            "utc_time": datetime.datetime.now(),
+            "utc_time": datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ'),
             "track": track,
             "github_file_url": "https://github.com/Sam-HNGx/stage-1/blob/3fc862ee6851e969802bc4c12256052dedc87fd8/app.py",
             "github_repo_url": "https://github.com/Sam-HNGx/stage-1.git",
